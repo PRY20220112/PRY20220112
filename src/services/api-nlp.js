@@ -4,18 +4,18 @@ import axios from "axios";
 const headers = {
   "Content-Type": "application/json",
 };
-
-export const exists_DNI = (json_data) => {
+export default request_api = (json_data) => {
   return axios
     .post(
-      `${"https://www.softwarelion.xyz/api/reniec/reniec-dni"}`,
-      json_data,
+      `${"https://api-nlp-pry20220112.herokuapp.com/spacy/"}`,
       {
-        headers: headers,
-      }
+        texto: json_data,
+      },
+      headers
     )
     .then((response) => {
       const { data } = response;
+      console.log(data);
       return data;
     });
 };

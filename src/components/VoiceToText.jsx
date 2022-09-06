@@ -13,6 +13,8 @@ import Voice, {
   SpeechErrorEvent,
 } from "@react-native-voice/voice";
 
+import { request_api } from "../services/api-nlp";
+
 function VoiceToText() {
   const [recognized, setRecognized] = useState("");
   const [volume, setVolume] = useState("");
@@ -120,7 +122,7 @@ function VoiceToText() {
     <View style={styles.dictado}>
       <View style={styles.textAreaContainer}>
         <Text style={styles.textArea} underlineColorAndroid="transparent">
-          {results.length > 0 ? results[0] : "Texto dictado por el doctor"}
+          {results.length > 0 ? JSON.stringify(request_api("Hola ")) : "Texto dictado por el doctor"}
         </Text>
       </View>
       <TouchableHighlight onPress={_startRecognizing}>
