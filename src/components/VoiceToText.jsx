@@ -13,6 +13,8 @@ import Voice, {
   SpeechErrorEvent,
 } from "@react-native-voice/voice";
 
+import { request_api } from "../services/api-nlp";
+
 function VoiceToText() {
   const [recognized, setRecognized] = useState("");
   const [volume, setVolume] = useState("");
@@ -22,6 +24,7 @@ function VoiceToText() {
   const [results, setResults] = useState([]);
   const [partialResults, setPartialResults] = useState([]);
   const languageInput = "es-PE";
+  const resula = request_api(results[0])
   useEffect(() => {
     Voice.onSpeechStart = onSpeechStart;
     Voice.onSpeechRecognized = onSpeechRecognized;
